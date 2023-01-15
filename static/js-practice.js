@@ -132,7 +132,8 @@ document.querySelector("#puppy-form").addEventListener('click', (evt) => {
   fetch(url)
     .then((response) = response.json())
     .then((results) => {
-    document.querySelector("#puppies-go-here").innerHTML = <img src = `${results['url']}`>
+    document.querySelector("#puppies-go-here").innerHTML = <img id='puppies-hole' src=''></img>;
+    document.getElementById('puppies-hole'.src = `${results.url}`)
     }
 
 })
