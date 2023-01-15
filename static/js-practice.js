@@ -122,4 +122,18 @@ function showPuppies(results) {
   puppyDiv.insertAdjacentHTML('beforeend', `<img src=${puppyURL} alt="puppy-image">`);
 }
 
-// Your Code Here
+document.querySelector("#puppy-form").addEventListener('click', (evt) => {
+  evt.preventDefault();
+  const formKey = document.querySelector("#num-puppies[name='num-puppies']")
+  const queryString = new URLSearchParams({numPuppies: formKey.value}).toString();
+
+  const url = `/puppies.json?${queryString}`;
+  
+  fetch(url)
+    .then((response) = response.json())
+    .then((results) => {
+    document.querySelector("#puppies-go-here").innerHTML = <img src = `${results['url']}`>
+    }
+
+})
+}
